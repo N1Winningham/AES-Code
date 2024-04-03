@@ -1,0 +1,88 @@
+//
+// Created by Nathan Winningham on 3/10/24.
+//
+
+//WIP, includes pseudocode.
+
+
+#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include "Substitute Bytes.hpp"
+using namespace std;
+
+#ifndef AES_KEY_SCHEDULE_HPP
+#define AES_KEY_SCHEDULE_HPP
+
+void addRoundKey() {
+    if (currentRound == 1) {
+        XOR(subkey, state);
+    } else {
+        XOR(mainKey, state);
+    }
+    nextRound;
+}
+
+
+void rcon(currentRound, rconTemp){
+    vector<vector<int>> rcon = {
+            {0x01, 0x00, 0x00, 0x00},
+            {0x02, 0x00, 0x00, 0x00},
+            {0x04, 0x00, 0x00, 0x00},
+            {0x08, 0x00, 0x00, 0x00},
+            {0x10, 0x00, 0x00, 0x00},
+            {0x20, 0x00, 0x00, 0x00},
+            {0x40, 0x00, 0x00, 0x00},
+            {0x80, 0x00, 0x00, 0x00},
+            {0x1b, 0x00, 0x00, 0x00},
+            {0x36, 0x00, 0x00, 0x00},
+            {0x6c, 0x00, 0x00, 0x00},
+            {0xd8, 0x00, 0x00, 0x00},
+            {0xab, 0x00, 0x00, 0x00},
+            {0x4d, 0x00, 0x00, 0x00}
+    };
+    if(currentRound == 1){
+        rconTemp
+    }
+}
+
+void rotate(vector<int> state,int colNum){
+    vector<int> vTemp;
+//    for(int i=4;i<8;i++){
+    vTemp.push_back(state[colNum]);
+    swap(state[colNum], state[colNum+4]);
+    swap(state[colNum+4], state[colNum+8]);
+    swap(state[colNum+8], state[colNum+12]);
+    state[colNum+12] = vTemp[colNum];
+    vTemp.clear();
+//    }
+//    return state;
+}
+
+void innerLoop(vector<int> state){
+    vector<vector<int>> rcon = {
+            {0x01, 0x00, 0x00, 0x00},
+            {0x02, 0x00, 0x00, 0x00},
+            {0x04, 0x00, 0x00, 0x00},
+            {0x08, 0x00, 0x00, 0x00},
+            {0x10, 0x00, 0x00, 0x00},
+            {0x20, 0x00, 0x00, 0x00},
+            {0x40, 0x00, 0x00, 0x00},
+            {0x80, 0x00, 0x00, 0x00},
+            {0x1b, 0x00, 0x00, 0x00},
+            {0x36, 0x00, 0x00, 0x00},
+            {0x6c, 0x00, 0x00, 0x00},
+            {0xd8, 0x00, 0x00, 0x00},
+            {0xab, 0x00, 0x00, 0x00},
+            {0x4d, 0x00, 0x00, 0x00}
+    };
+
+    rotate(state, 4);
+    unsigned char currentByte = hex(rcon[1]);
+    SBox();
+
+
+}
+
+#endif //AES_ADD_ROUND_KEY_HPP
