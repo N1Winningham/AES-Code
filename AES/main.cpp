@@ -129,12 +129,6 @@ int main() {
         keyVectorASCII.push_back((int)keyVectorHex[j]);
     }
 
-    //Turns the decimal numbers of the characters into hexadecimal.
-    for (int i = 0; i < keyVector.size(); i++) {
-        cout << '"' << char(keyVectorHex[i]) << '"' << " in hexadecimal is: " << keyVector[i];
-        cout << "\n";
-    }
-
     cout << "\nThe matrix in hexadecimal format would look like:\n\n";
 
     //Divides the values into four-by-four format.
@@ -145,7 +139,28 @@ int main() {
         }
     }
 
-    cout << "\nNow that we have our key, we can expand the key to fit our " << roundSize << " rounds.\n";
+//    cout << "\nNow that we have our key, we can expand the key to fit our " << roundSize << " rounds.\n";
+//
+//    cout << "\nThe first step in expanding our round key is to take the current key we have right now and grab the "
+//            "last column.  Once we have the last column, we will then rotate the column (put the top value on the bottom and "
+//            "rotate the rest up.)\n";
+////    HERE IS WHERE WE INSERT THE CODE/DEMONSTRATION OF THE ROTATE.
+//
+//    cout << "\nNow that we have rotated the column, we can substitute the bytes.  This is done by taking each of the "
+//            "hexadecimal values and finding where they intersect to give a new value.\n";
+//
+////    HERE IS WHERE WE INSERT THE CODE/DEMONSTRATION OF THE SUB.
+//
+//    cout << "\nNow that we have substituted the bytes, we create the first column for the first round key. To do this,"
+//            "we will start by XORing the column we just rotated and substituted with the first column of the state.\n";
+//
+//    //    HERE IS WHERE WE INSERT THE CODE/DEMONSTRATION OF THE XOR.
+//
+//    cout << "\nNow, we will XOR the column we just created with the first RCON value.\n";
+//
+//    //    HERE IS WHERE WE INSERT THE CODE/DEMONSTRATION OF THE XOR.
+//
+//    cout << "\n\n";
 
     return 0;
 }
